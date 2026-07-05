@@ -1,0 +1,42 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default",
+      "description": "Build the firmware simulator and use installed GoogleTest if available.",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "EAE_BUILD_TESTS": "ON",
+        "EAE_ALLOW_FETCH_GTEST": "OFF"
+      }
+    },
+    {
+      "name": "fetch-gtest",
+      "displayName": "Default with CMake-managed GoogleTest download",
+      "description": "Use only when internet access is available and GoogleTest is not installed locally.",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "EAE_BUILD_TESTS": "ON",
+        "EAE_ALLOW_FETCH_GTEST": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}
