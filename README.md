@@ -1,5 +1,22 @@
 # EAE Firmware - Section 7.1 Simulation
 
+## Completion Note
+
+This repository is not a complete implementation of every optional Section 7.1
+firmware requirement. Due to the limited submission timeline, I focused on a
+clear, runnable firmware-style simulation that demonstrates the main control
+concepts: CAN message simulation, PID-based cooling demand, state-machine
+handling, command-line runtime parameters, CMake project structure, and unit
+tests.
+
+I did not complete a full Linux-based firmware build environment. My available
+Linux machine is a work machine and was not appropriate to use for this
+submission. I also considered MSYS2 as a Unix-like development and build
+environment on Windows, but it conflicted with one of my CUDA kernel
+development environments. For that reason, this project should be reviewed as a
+Windows/MSVC-validated firmware simulation framework rather than a fully
+finished cross-platform firmware package.
+
 This folder contains a C++17 firmware-style simulation for the optional
 Section 7.1 Firmware task in the EAE Electrical and Controls Challenge.
 
