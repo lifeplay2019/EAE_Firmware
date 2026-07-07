@@ -10,6 +10,10 @@ using namespace eae::firmware;
 
 namespace {
 
+// First-order lumped thermal model of the coolant loop. Heat load pushes the
+// temperature up; passive loss toward ambient and pump/fan effort pull it
+// down. The coefficients are not from a real datasheet, they were picked so
+// the default 90-step run shows a full approach to the target temperature.
 double updateThermalPlant(double temperatureC,
                           double ambientTempC,
                           double heatLoadKw,

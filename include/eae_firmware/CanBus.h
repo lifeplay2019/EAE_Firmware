@@ -23,6 +23,10 @@ constexpr uint32_t CoolingCommand = 0x200;
 constexpr uint32_t DiagnosticStatus = 0x201;
 }
 
+// Simulated bus. The receive side is a mailbox that keeps only the newest
+// frame per CAN id, which is how most CAN peripherals present data to the
+// application. The transmit side keeps every frame in order so tests can
+// assert on exactly what the controller sent in a scan.
 class CanBus {
 public:
     void receive(const CanFrame& frame);
