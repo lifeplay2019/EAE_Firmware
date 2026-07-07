@@ -26,7 +26,8 @@ bool parseBool(const std::vector<std::string>& args, std::size_t& index) {
     return parseInt(args, index) != 0;
 }
 
-}  // namespace
+}  
+// namespace
 
 CliOptions parseCliOptions(int argc, char* argv[]) {
     CliOptions options;

@@ -19,8 +19,8 @@ CoolingState CoolingStateMachine::update(const StateInputs& inputs) {
     constexpr double warningClearMarginC = 4.0;
     constexpr double criticalMarginC = 22.0;
 
-    // A NaN or inf reading is treated the same as the sensor flagging itself
-    // invalid; we never feed garbage into the fault comparison below.
+    // A NaN or inf reading is treated the same as the sensor flagging itselfinvalid
+    // We never feed garbage into the fault comparison below.
     const bool invalidTemperature = !inputs.temperatureValid || !std::isfinite(inputs.temperatureC);
     const bool criticalTemperature = inputs.temperatureC >= inputs.targetTempC + criticalMarginC;
 
@@ -41,7 +41,7 @@ CoolingState CoolingStateMachine::update(const StateInputs& inputs) {
         return state_;
     }
 
-    // Hysteresis on the way out of WARNING: entry is at target+8 but the
+    // Hysteresis on the way out of WARNING: entry is at target +8 but the
     // state only clears below target+4. Without the gap the state (and the
     // derate request that follows it) would chatter around one trip point.
     if (state_ == CoolingState::Warning &&
